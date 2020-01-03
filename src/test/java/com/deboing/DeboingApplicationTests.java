@@ -1,4 +1,4 @@
-package com.deboing.deboing;
+package com.deboing;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
