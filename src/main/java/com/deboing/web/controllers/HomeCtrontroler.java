@@ -9,8 +9,7 @@ public class HomeCtrontroler {
 
 
 
-    @RequestMapping("/" +
-            "")
+    @RequestMapping("/")
     public String home(){
         return "index";
     }
