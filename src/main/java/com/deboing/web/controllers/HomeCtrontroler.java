@@ -10,6 +10,11 @@ public class HomeCtrontroler {
 
 
     @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
+
+    @RequestMapping("/home")
     public String home(){
         return "index";
     }

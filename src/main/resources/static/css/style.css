@@ -1,20 +1,278 @@
 body {
-    padding-top: 150px;
+
+
+
+
 }
 
 .starter-template {
+
     padding: 40px 15px;
     text-align: center;
+    background-color: blue;
+
+}
+
+.jumbotron{
+    margin-top: 140px;
+    background-color: powderblue;
+}
+
+.container{
+    width: 100%;
+}
+
+
+
+
+/* Style for the quotes on the welcome page*/
+
+.blockquote {
+
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+.blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+.blockquote p {
+    display: inline;
+}
+
+/* End of second block*/
+
+
+/*-------------------------------------------------------
+ *  Courtesy of the Carousel Bootstrap example at:
+ *  https://getbootstrap.com/2.3.2/examples/carousel.html
+ *-------------------------------------------------------/
+
+
+/* MARKETING CONTENT
+    -------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .span4 {
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: normal;
+}
+.marketing .span4 p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.member-title {
+    color: #f0f8ff;
+}
+
+/* Featurettes
+    ------------------------- */
+
+.featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+    padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+    overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette-image {
+    margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+    width: 120px;
+    height: 120px;
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+    margin-right: 40px;
+}
+.featurette-image.pull-right {
+    margin-left: 80px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+/*-------------------------------------------------------
+ *  Signup form
+ *-------------------------------------------------------/
+ /** Registration page */
+.fieldError {
+    border : 2px solid red;
+}
+
+
+/*-------------------------------------------------------
+ * Contact us page style
+ *-------------------------------------------------------/
+ /** contact page */
+.contact-page{
+    margin-top: 160px;
+
+}
+
+.container-1 {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h1, h4 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+h1 i {
+    color: pink;
+}
+
+
+/*-------------------------------------------------------
+ * Contact us page style
+ *-------------------------------------------------------/
+ /** contact page */
+.login-margin{
+
+    margin-top: 120px;
+
 }
 
 
 /*
-
-<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
-
-
-<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
-    <link type="text/css" th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
-
+* POST PAGE
 */
+
+.postScroll{
+
+    overflow-y: scroll;
+    overflow: hidden;
+}
+
+.leftcol {
+    /* position: fixed;
+     top: 0%;
+     left: 0%; */
+    right: 10px;
+    position: fixed;
+    overflow:hidden;
+}
+
+
+/*
+ NAV BAR
+*/
+
+.navbar{
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: darkslateblue;
+}
+
+.navbar-left{
+    margin-left: 30px;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 100px;
+    height: 100px;
+    padding-top: 0;
+}
+
+
+
+
+.dropdown-menu {
+    background-color: darkslateblue;
+}
+.dropdown-menu li a {
+    line-height: 50px;
+    height: 50px;
+}
+
+
+.navbar-brand {
+
+    padding: 0px;
+}
+.navbar-brand>img {
+    height: 100%;
+    padding-top: -40px;
+    width: 200px;
+
+}
+
+.navbar-center{
+
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left:45%;
+
+    text-align: center;
+
+
+}
+
+.navbar-right{
+
+
+    margin-right: 30px;
+}
+
+/*
+    NAV BAR HOVER ACTIONS
+*/
+
+#topheader .navbar-nav li > a {
+    text-transform: capitalize;
+    color: #ffffff;
+    transition: background-color .2s, color .2s;
+
+
+}
+
+#topheader .navbar-nav li> a:hover, a:focus{
+    background-color: #333;
+    color:#fff;
+}
+
+
+
+#topheader .navbar-nav li > a:active {
+    background-color: #333;
+
+    color: #fff;
+}
+
+.active2{
+    background-color: #333;
+    color: #fff;
+}
+
+/*
+ SINUP PAGE
+*/
+
+.signup-page{
+    margin-top: 40px;
+}
+
+footer {
+    margin-top: 150px;
+}
+

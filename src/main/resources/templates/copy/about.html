@@ -1,0 +1,152 @@
+<!DOCTYPE html >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header"/>
+
+<body>
+<div  th:replace="common/navbar :: common-navbar"/>
+
+
+
+
+    <!-- Main Jumbotron
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="jumbotron">
+                    <h1 class="text-center" th:text="#{copy.h1.text}"></h1>
+                    <!--<p class="lead" th:text="#{copy.p.lead}"></p>-->
+
+                </div>
+            </div>
+        </div>
+
+    </div><!-- ./container -->
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+
+                <div class="col-lg-4 span4">
+                    <a href="https://www.linkedin.com/in/shekinah-bakupa-a4a45913b">
+                        <img class="rounded-circle"
+                             th:src="@{/images/shekinah.JPG}"
+                             alt="shekinah" width="140" height="140" />
+                    </a>
+                    <h2>As a student <small class="member-title">Rise</small></h2>
+                    <div class="span4 collapse-group">
+                        <p class="collapse text-justify" th:text="#{copy.project.lead.intro}"></p>
+                        <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>
+                    </div>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 span4">
+                    <a href="https://www.linkedin.com/in/shekinah-bakupa-a4a45913b">
+                        <img class="rounded-circle"
+                             th:src="@{/images/shekmusic.jpg}"
+                             alt="shekinah" width="140" height="140" />
+                    </a>
+                    <h2>As a musician <small class="member-title">Shine</small></h2>
+                    <div class="span4 collapse-group">
+                        <p class="collapse text-justify" th:text="#{copy.project.lead.music}"></p>
+                        <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>
+                    </div>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 span4" >
+                    <a href="https://www.linkedin.com/in/shekinah-bakupa-a4a45913b">
+                        <img class="rounded-circle"
+                             th:src="@{/images/promo.jpg}"
+                             alt="shekinah" width="140" height="140" />
+                    </a>
+                    <h2>Shek Glory <small class="member-title">To Perfection</small></h2>
+                    <div class="span4 collapse-group">
+                        <p class="collapse text-justify" th:text="#{copy.project.lead.shekinah}"></p>
+                        <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>
+                    </div>
+                </div><!-- /.col-lg-4 -->
+
+
+        </div><!-- /.row -->
+
+        <!-- START THE FEATURETTES -->
+        <div class="row">
+            <div class="col-md-12">
+                <hr class="featurette-divider" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-lg-4 span4">
+                    <!--<a href="https://www.linkedin.com/in/shekinah-bakupa-a4a45913b">-->
+                    <!--<img class="img-circle"-->
+                    <!--th:src="@{/images/shekinah.JPG}"-->
+                    <!--alt="shekinah" width="140" height="140" />-->
+                    <!--</a>-->
+                    <!--<h2>As a student <small class="member-title">Shek</small></h2>-->
+                    <!--<div class="span4 collapse-group">-->
+                    <!--<p class="collapse text-justify" th:text="#{copy.project.lead.intro}"></p>-->
+                    <!--<p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>-->
+                    <!--</div>-->
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 span4">
+                    <a href="https://www.linkedin.com/in/shekinah-bakupa-a4a45913b">
+                        <img class="rounded-circle"
+                             th:src="@{/images/shekmusic.jpg}"
+                             alt="shekinah" width="140" height="140" />
+                    </a>
+                    <h2>Voyage <small class="member-title">Shek</small></h2>
+                    <div class="span4 collapse-group">
+                        <p class="collapse text-justify" th:text="#{copy.project.lead.voyage}"></p>
+                        <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>
+                    </div>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 span4" >
+                    <!--<a href="https://www.linkedin.com/in/shekinah-bakupa-a4a45913b">-->
+                    <!--<img class="img-circle"-->
+                    <!--th:src="@{/images/promo.jpg}"-->
+                    <!--alt="shekinah" width="140" height="140" />-->
+                    <!--</a>-->
+                    <!--<h2>Shekinah GLory <small class="member-title">Shek</small></h2>-->
+                    <!--<div class="span4 collapse-group">-->
+                    <!--<p class="collapse text-justify" th:text="#{copy.project.lead.shekinah}"></p>-->
+                    <!--<p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>-->
+                    <!--</div>-->
+                </div><!-- /.col-lg-4 -->
+            </div>
+        </div>
+
+
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2016 shektheglory.com &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+
+    </div><!-- /.container -->
+
+    <script>
+        $(document).ready(function () {
+            document.title = "SK-About"
+
+        });
+    </script>
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<div th:replace="common/header :: before-body-script"/>
+
+</body>
+</html>
