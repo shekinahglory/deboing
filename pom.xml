@@ -5,8 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.1.10.RELEASE</version>
 	</parent>
 	<groupId>com.deboing</groupId>
 	<artifactId>deboing</artifactId>
@@ -16,6 +15,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 	</properties>
 
 	<dependencies>
@@ -63,8 +64,37 @@
 			<artifactId>jquery</artifactId>
 			<version>3.4.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
 		<!-- Simple mail message dependency-->
+
+
+         <!--	Spring security	-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+
+        <!--		Persistence and database -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 
 	</dependencies>
 
