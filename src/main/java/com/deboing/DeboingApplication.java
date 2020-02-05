@@ -8,9 +8,11 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "com.deboing.backend.persistence.repositories")
 public class DeboingApplication {
 
 	public static void main(String[] args) {

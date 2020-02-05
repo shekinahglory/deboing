@@ -9,10 +9,32 @@ import java.util.Objects;
 @Entity
 public class Plan implements Serializable {
 
+    private static final long serialVersionUID = 1l;
     @Id
     @Column(name = "plan_id")
     private int planId;
 
+    private String name;
+
+    public Plan(){
+
+    }
+
+    public int getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(int planId) {
+        this.planId = planId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -26,4 +48,6 @@ public class Plan implements Serializable {
     public int hashCode() {
         return Objects.hash(planId);
     }
+
+
 }
