@@ -22,6 +22,9 @@
              <li  th:if="${#authorization.expression('!isAuthenticated()')}">
                  <a class="nav-link" th:text="#{navbar.login.text}" href="/login"/>
              </li>
+             <li  th:if="${#authorization.expression('!isAuthenticated()')}">
+                 <a class="nav-link" th:text="#{navbar.signup.text}" href="/register"/>
+             </li>
              <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}"  >
                  <form id="f" th:action="@{/logout}" method="post" role="form" class="navbar-form">
                      <button class="btn btn-primary" type="submit">Logout</button>

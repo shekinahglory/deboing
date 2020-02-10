@@ -8,6 +8,9 @@ import com.deboing.backend.persistence.domain.UserRole;
 import com.deboing.backend.persistence.repositories.PlanRepository;
 import com.deboing.backend.persistence.repositories.RoleRepository;
 import com.deboing.backend.persistence.repositories.UserRepository;
+import com.deboing.enums.PlansEnum;
+import com.deboing.enums.RolesEnum;
+import com.deboing.utils.UsersUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -46,7 +50,7 @@ public class RepoTest {
     @Test
     public void testCreateNewRole() throws Exception
     {
-          Role userROle = createRole();
+          Role userROle = createRole(RolesEnum.BASIC);
           roleRepository.save(userROle);
           Optional<Role> retrieveRole = roleRepository.findById(1);
           Assert.assertNotNull(retrieveRole);
@@ -54,7 +58,7 @@ public class RepoTest {
 
     @Test
     public void testCreateNewPlan() throws Exception {
-        Plan bacicPlan = createPlan();
+        Plan bacicPlan = createPlan(PlansEnum.BASIC);
         planRepository.save(bacicPlan);
         Optional<Plan> retrievePlan  = planRepository.findById(1);
         Assert.assertNotNull(retrievePlan);
@@ -63,16 +67,14 @@ public class RepoTest {
 
     @Test
     public void testCreateNewUser() throws Exception {
-        Plan bacicPlan = createPlan();
+        Plan bacicPlan = createPlan(PlansEnum.BASIC);
         planRepository.save(bacicPlan);
-        User basicUser = createBasicUser();
+        User basicUser = UsersUtils.createBasicUser();
         basicUser.setPlan(bacicPlan);
 
-        Role basicRole = createRole();
+        Role basicRole = createRole(RolesEnum.BASIC);
         Set<UserRole> userRoles = new HashSet<>();
-        UserRole userRole = new UserRole();
-        userRole.setUser(basicUser);
-        userRole.setRole(basicRole);
+        UserRole userRole = new UserRole(basicUser, basicRole);
         userRoles.add(userRole);
 
         basicUser.getUserRoles().addAll(userRoles);
@@ -96,32 +98,14 @@ public class RepoTest {
 
 
     }
-    public Plan createPlan(){
-        Plan plan = new Plan();
-        plan.setName("basic");
-        plan.setPlanId(1);
-        return plan;
+    public Plan createPlan(PlansEnum plansEnum){
+        return new Plan(plansEnum);
     }
 
-    public Role createRole(){
-        Role role = new Role();
-        role.setId(1);
-        role.setName("ADMIN");
-        return role;
+    public Role createRole(RolesEnum rolesEnum){
+        return new Role(rolesEnum);
+
     }
 
-    public User createBasicUser(){
-        User user = new User();
-        user.setUsername("shekinah");
-        user.setCountry("congo");
-        user.setDescription("A future CEO");
-        user.setEmail("shekinah@gmail.com");
-        user.setFirstName("shekinah");
-        user.setLastName("bakupa");
-        user.setPassword("password");
-        user.setPhoneNumber("2004562938");
-        user.setProfileImage("https://blabla.images.com/basicuser");
 
-        return user;
-    }
 }

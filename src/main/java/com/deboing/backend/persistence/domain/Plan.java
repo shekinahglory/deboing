@@ -1,5 +1,7 @@
 package com.deboing.backend.persistence.domain;
 
+import com.deboing.enums.PlansEnum;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,6 +20,11 @@ public class Plan implements Serializable {
 
     public Plan(){
 
+    }
+
+    public Plan(PlansEnum plansEnum){
+        this.planId = plansEnum.getId();
+        this.name = plansEnum.getPlanName();
     }
 
     public int getPlanId() {

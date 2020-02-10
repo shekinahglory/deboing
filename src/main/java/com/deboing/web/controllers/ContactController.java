@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ContactController {
 
-  private static final Logger LOG = LoggerFactory.getLogger(ContactController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ContactController.class);
     private static final String FEEDBACK_MODEL_KEY = "feedback" ;
     private static final String CONTACT_US_VIEW_NAME = "contact/contact";
 
     @Autowired
     private EmailService emailService;
 
-     @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public String getContanct(ModelMap modelMap){
         FeedBackPojo feedBackPojo = new FeedBackPojo();
         modelMap.addAttribute(ContactController.FEEDBACK_MODEL_KEY, feedBackPojo);
