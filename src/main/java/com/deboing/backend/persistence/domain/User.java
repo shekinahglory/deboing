@@ -37,7 +37,7 @@ public class User implements Serializable {
     @JoinColumn(name = "plan_id")
     private Plan plan;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<Role> roles = new ArrayList<>();
 
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -48,6 +48,7 @@ public class User implements Serializable {
     }
 
     public List<Role> getRoles() {
+
         return roles;
     }
 

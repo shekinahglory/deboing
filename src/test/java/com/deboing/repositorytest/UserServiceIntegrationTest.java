@@ -27,12 +27,12 @@ public class UserServiceIntegrationTest {
 
     @Test
     public void testCreateNewUser() throws Exception{
-        Set<UserRole> userRoles = new HashSet<>();
-        User basicUser = UsersUtils.createBasicUser();
-        Role basicRole = new Role(RolesEnum.BASIC);
 //        Set<UserRole> userRoles = new HashSet<>();
-        UserRole userRole = new UserRole(basicUser, basicRole);
-        userRoles.add(userRole);
+//        User basicUser = UsersUtils.createBasicUser();
+//        Role basicRole = new Role(RolesEnum.BASIC);
+////        Set<UserRole> userRoles = new HashSet<>();
+//        UserRole userRole = new UserRole(basicUser, basicRole);
+//        userRoles.add(userRole);
 //       userRoles.add(new UserRole(basicUser, new Role(RolesEnum.PRO)));
 
 //        User user = userService.createUser(basicUser, PlansEnum.BASIC, userRoles);

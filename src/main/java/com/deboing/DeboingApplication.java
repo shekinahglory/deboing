@@ -11,6 +11,7 @@ import org.h2.server.web.WebServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,6 +35,13 @@ public class DeboingApplication implements CommandLineRunner {
 
 	private static final Logger LOG = LoggerFactory.getLogger(DeboingApplication.class);
 
+	@Value("${webmaster.username}")
+	private String webmasterUsername;
+	@Value("${webmaster.password}")
+	private String webmasterPassword;
+	@Value("${webmaster.email}")
+	private String webmasterEmail;
+
 	@Autowired
 	private UserService userService;
 	private RolesEnum rolesEnum;
@@ -53,9 +61,9 @@ public class DeboingApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		User basicuser = createBasicUser();
+		User basicuser = createBasicUser(webmasterUsername, webmasterPassword, webmasterEmail);
 		LOG.debug("Creating user with username : " + basicuser.getUsername());
-		User user =  userService.createUser(basicuser, PlansEnum.PRO, RolesEnum.PRO);
+		User user =  userService.createUser(basicuser, PlansEnum.PRO, RolesEnum.ADMIN);
 		LOG.info("User {} created", user.getUsername());
 //		LOG.info("User {} created", user1.getUsername());
 
