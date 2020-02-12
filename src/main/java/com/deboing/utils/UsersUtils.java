@@ -22,4 +22,19 @@ public class UsersUtils {
 
         return user;
     }
+
+    public static User createMainUser(){
+        User user = new User();
+        user.setUsername("mainuser");
+        user.setPassword("secret");
+        user.setEmail("basic@gmail.col");
+        user.setFirstName("firstName");
+        user.setLastName("lastName");
+        user.setPhoneNumber("1234456789");
+        user.setCountry("DRC");
+        user.setDescription("A basic user");
+        user.setProfileImage("https://blabla.images.com/basicuser");
+
+        return user;
+    }
 }

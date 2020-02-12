@@ -19,9 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @SpringBootTest
@@ -51,7 +49,10 @@ public class RepoTest {
     public void testCreateNewRole() throws Exception
     {
           Role userROle = createRole(RolesEnum.BASIC);
+          User basicUser = UsersUtils.createBasicUser();
+          userROle.setUser(basicUser);
           roleRepository.save(userROle);
+
           Optional<Role> retrieveRole = roleRepository.findById(1);
           Assert.assertNotNull(retrieveRole);
     }
@@ -71,31 +72,20 @@ public class RepoTest {
         planRepository.save(bacicPlan);
         User basicUser = UsersUtils.createBasicUser();
         basicUser.setPlan(bacicPlan);
-
+        List<Role> roles = new ArrayList<>();
         Role basicRole = createRole(RolesEnum.BASIC);
-        Set<UserRole> userRoles = new HashSet<>();
-        UserRole userRole = new UserRole(basicUser, basicRole);
-        userRoles.add(userRole);
+        roles.add(basicRole);
 
-        basicUser.getUserRoles().addAll(userRoles);
-
-        for (UserRole ur: userRoles){
-            roleRepository.save(ur.getRole());
+        for (Role role : roles){
+            roleRepository.save(role);
         }
-
         basicUser = userRepository.save(basicUser);
+        Assert.assertNotNull(basicUser);
         Optional<User> newlyCreatedUser = userRepository.findById(basicUser.getUserId());
-        Assert.assertNotNull(newlyCreatedUser);
         Assert.assertNotNull(newlyCreatedUser.get().getUserId() != 0);
-        Assert.assertNotNull(newlyCreatedUser.get().getPlan());
-        Assert.assertNotNull(newlyCreatedUser.get().getPlan().getPlanId());
+        userRepository.deleteById(basicUser.getUserId());
 
-        Set<UserRole> newlyCreatedUserRole = newlyCreatedUser.get().getUserRoles();
-        for (UserRole ur: newlyCreatedUserRole){
-            Assert.assertNotNull(ur.getRole());
-            Assert.assertNotNull(ur.getRole().getId());
-        }
-
+        Optional<User> newlyDeletedUser = userRepository.findById(basicUser.getUserId());
 
     }
     public Plan createPlan(PlansEnum plansEnum){

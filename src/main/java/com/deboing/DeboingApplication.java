@@ -22,7 +22,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static com.deboing.utils.UsersUtils.createBasicUser;
@@ -34,6 +36,7 @@ public class DeboingApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserService userService;
+	private RolesEnum rolesEnum;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DeboingApplication.class, args);
@@ -49,21 +52,15 @@ public class DeboingApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		Set<UserRole> userRoles = new HashSet<>();
-//		User basicuser = createBasicUser();
-//		userRoles.add(new UserRole(basicuser, new Role(RolesEnum.BASIC)));
-//		userRoles.add(new UserRole(basicuser, new Role(RolesEnum.PRO)));
-//		LOG.debug("Creating user with username : " + basicuser.getUsername());
-////		User user =  userService.createUser(basicuser, PlansEnum.BASIC, userRoles);
-//		LOG.info("User {} created", user.getUsername());
+
+		User basicuser = createBasicUser();
+		LOG.debug("Creating user with username : " + basicuser.getUsername());
+		User user =  userService.createUser(basicuser, PlansEnum.PRO, RolesEnum.PRO);
+		LOG.info("User {} created", user.getUsername());
+//		LOG.info("User {} created", user1.getUsername());
+
 	}
 
-//	@Bean
-//	public SpringTemplateEngine templateEngine(ITemplateResolver templateResolver, SpringSecurityDialect sec) {
-//		final SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-//		templateEngine.setTemplateResolver(templateResolver);
-//		templateEngine.addDialect(sec); // Enable use of "sec"
-//		return templateEngine;
-//	}
+
 
 }
