@@ -44,6 +44,24 @@ public class RepoTest {
         Assert.assertNotNull(planRepository);
     }
 
+    @Test
+    public void testLoadUserByUser(){
+        Plan bacicPlan = createPlan(PlansEnum.BASIC);
+        planRepository.save(bacicPlan);
+        User basicUser = UsersUtils.createBasicUser();
+        basicUser.setPlan(bacicPlan);
+        List<Role> roles = new ArrayList<>();
+        Role basicRole = createRole(RolesEnum.BASIC);
+        roles.add(basicRole);
+
+        for (Role role : roles){
+            roleRepository.save(role);
+        }
+        basicUser = userRepository.save(basicUser);
+        Assert.assertNotNull(basicUser);
+        Optional<User> newlyCreatedUser = userRepository.findById(basicUser.getUserId());
+    }
+
 
     @Test
     public void testCreateNewRole() throws Exception

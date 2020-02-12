@@ -1,12 +1,15 @@
 package com.deboing.backend.persistence.domain;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
 
 @Entity
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
 
     private final static long serialVersionUID = 1l;
 
@@ -38,7 +41,7 @@ public class User implements Serializable {
     private Plan plan;
 
     @OneToMany
-    private List<Role> roles = new ArrayList<>();
+    private Set<Role> roles = new HashSet<>();
 
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private Set<UserRole> userRoles = new HashSet<>();
@@ -47,11 +50,11 @@ public class User implements Serializable {
 
     }
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
@@ -83,6 +86,21 @@ public class User implements Serializable {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -93,6 +111,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(ur -> authorities.add(new Authority(ur.getName())));
+        return authorities;
     }
 
     public String getPassword() {
